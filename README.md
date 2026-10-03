@@ -2,6 +2,8 @@
 
 An original, playable browser battle royale prototype. The client is HTML, CSS, JavaScript and Three.js; a Node.js WebSocket server owns the match simulation. All interface text is English. No Unity editor, paid assets, external CDN or account is needed.
 
+![Early gameplay screenshot](docs/gameplay.png)
+
 **Status:** early multiplayer prototype, not a finished PUBG/Free Fire equivalent. Supports a room capacity of 50, private lobby passwords, optional training bots and complete match progression. Production internet hosting and 50-device gameplay have not been validated.
 
 **[Инструкция на русском → README.ru.md](README.ru.md)**

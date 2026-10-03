@@ -1,0 +1,1188 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #edf0e8;
+  background: #162730;
+  font-synthesis: none;
+  --accent: #f4ac58;
+  --ink: #172127;
+  --muted: #98a6a9;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  overflow: hidden;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+[hidden] {
+  display: none !important;
+}
+#world {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+#vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(10, 22, 28, 0.82), rgba(10, 22, 28, 0.1) 68%),
+    linear-gradient(0deg, #10242bb8, transparent 30%);
+}
+#topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 27px 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 4;
+  pointer-events: none;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  pointer-events: auto;
+}
+.brand > span:not(.brandmark) {
+  font-weight: 300;
+}
+.brandmark {
+  color: var(--accent);
+  font-size: 34px;
+  margin-right: 10px;
+  transform: scaleX(1.05);
+}
+.brand small {
+  font-size: 8px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin-left: 16px;
+  padding-left: 16px;
+  border-left: 1px solid #7d939055;
+  line-height: 2;
+}
+.topright {
+  display: flex;
+  gap: 24px;
+  font: 10px monospace;
+  letter-spacing: 1px;
+  align-items: center;
+}
+.tag {
+  border: 1px solid #ffffff33;
+  padding: 7px 10px;
+}
+#connection {
+  color: #bfd6b0;
+}
+#connection::before {
+  content: "●";
+  margin-right: 8px;
+  font-size: 8px;
+}
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 105px 6% 90px;
+  gap: 5%;
+  justify-content: space-between;
+}
+.hero {
+  max-width: 760px;
+}
+.eyebrow {
+  font: 10px monospace;
+  letter-spacing: 2px;
+  color: #bac9c7;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.eyebrow > span {
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
+}
+h1 {
+  font-family: Impact, "Arial Narrow", Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(48px, 6.8vw, 106px);
+  letter-spacing: -1px;
+  line-height: 0.99;
+  margin: 28px 0;
+}
+h1 em {
+  color: var(--accent);
+  font-style: normal;
+}
+.hero p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #b7c3c3;
+}
+.specs {
+  display: flex;
+  gap: 35px;
+  margin-top: 40px;
+}
+.specs > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  border-right: 1px solid #ffffff26;
+  padding-right: 35px;
+}
+.specs > div:last-child {
+  border: 0;
+}
+.specs b {
+  font-size: 30px;
+  font-weight: 500;
+}
+.specs span {
+  font: 9px monospace;
+  letter-spacing: 1.2px;
+  color: var(--muted);
+}
+.maplabel {
+  margin-top: 50px;
+  font: 11px monospace;
+  letter-spacing: 1px;
+}
+.maplabel > span {
+  color: var(--accent);
+  margin-right: 9px;
+}
+.maplabel small {
+  display: block;
+  margin: 10px 0 0 24px;
+  color: var(--muted);
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+.menu-card {
+  width: 362px;
+  flex-shrink: 0;
+  padding: 27px;
+  background: rgba(18, 31, 38, 0.94);
+  border: 1px solid #ffffff24;
+  box-shadow: 0 25px 80px #0003;
+  backdrop-filter: blur(20px);
+}
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  font: 9px monospace;
+  letter-spacing: 1px;
+  color: var(--muted);
+  padding-bottom: 24px;
+  border-bottom: 1px solid #ffffff18;
+}
+.live-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+h2 {
+  font-size: 27px;
+  letter-spacing: -0.8px;
+  margin: 24px 0 10px;
+}
+.muted {
+  color: #a1afb2;
+  font-size: 12px;
+  line-height: 1.6;
+}
+label {
+  display: block;
+  font: 9px monospace;
+  letter-spacing: 1px;
+  margin: 22px 0 9px;
+}
+label span {
+  font: 9px Arial;
+  letter-spacing: 0;
+  color: var(--muted);
+  float: right;
+}
+input,
+select {
+  color: #f0f2e9;
+  background: #243239;
+  border: 1px solid #ffffff20;
+  width: 100%;
+  height: 43px;
+  padding: 0 12px;
+  border-radius: 0;
+  font-size: 12px;
+}
+input::placeholder {
+  color: #8a999e;
+}
+select {
+  color-scheme: dark;
+}
+#code {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+.tabs {
+  display: flex;
+  gap: 0;
+  margin-top: 24px;
+  border-bottom: 1px solid #ffffff22;
+}
+.tabs button {
+  flex: 1;
+  border: 0;
+  padding: 13px 0;
+  background: none;
+  color: #91a1a5;
+  font: 10px monospace;
+}
+.tabs .selected {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+.primary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 18px;
+  background: var(--accent);
+  border: 0;
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-top: 24px;
+}
+.primary:hover {
+  background: #ffc17b;
+}
+.primary span {
+  font-size: 19px;
+}
+.error {
+  color: #ffb4a2;
+  font-size: 12px;
+  line-height: 1.5;
+  min-height: 0;
+}
+.error:empty {
+  display: none;
+}
+.card-footer {
+  font: 8px monospace;
+  letter-spacing: 0.7px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  color: #7f959b;
+}
+.menu-footer {
+  position: absolute;
+  bottom: 30px;
+  left: 4%;
+  right: 4%;
+  border-top: 1px solid #ffffff28;
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  color: #9aadaa;
+  font: 9px monospace;
+  letter-spacing: 0.6px;
+}
+kbd {
+  font: 9px monospace;
+  border: 1px solid #ffffff30;
+  padding: 4px 6px;
+  margin-left: 7px;
+  color: #e0e6df;
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #0b1929aa;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 7;
+  padding: 25px;
+}
+.lobby-card,
+.capture-card,
+.result-card,
+.loading-card {
+  background: #16272eed;
+  border: 1px solid #ffffff25;
+  padding: 32px;
+  width: 470px;
+  max-height: 90vh;
+  overflow: auto;
+}
+.lobby-card h2 {
+  margin-top: 16px;
+}
+#copy-code {
+  background: #ffffff08;
+  border: 1px dashed #ffffff35;
+  color: var(--accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 19px;
+  margin-top: 24px;
+  gap: 12px;
+}
+#room-code {
+  font-size: 36px;
+  font-family: monospace;
+  letter-spacing: 8px;
+}
+#copy-code small {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #bcc6c6;
+}
+.lobby-info {
+  display: flex;
+  justify-content: space-between;
+  font: 10px monospace;
+  margin: 20px 0;
+  color: #aabcbd;
+}
+#roster {
+  max-height: 155px;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.roster-player {
+  padding: 12px;
+  background: #ffffff07;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.roster-player span {
+  font: 8px monospace;
+  color: var(--accent);
+  margin-left: 6px;
+}
+.textbutton {
+  background: none;
+  border: 0;
+  color: #9aacae;
+  text-align: center;
+  padding: 15px;
+  width: 100%;
+  font-size: 12px;
+}
+.loading-card {
+  text-align: center;
+}
+.loading-card .eyebrow {
+  justify-content: center;
+}
+.loading-card h2 {
+  font-size: 100px;
+  color: var(--accent);
+  margin: 25px 0;
+}
+.loading-card p,
+.capture-card p {
+  color: #a5b8bb;
+  font-size: 12px;
+  line-height: 2;
+}
+.loadtrack {
+  height: 3px;
+  background: #ffffff11;
+}
+.loadtrack div {
+  height: 100%;
+  background: var(--accent);
+  animation: loading 5s linear;
+}
+@keyframes loading {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+#hud {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  font-family: monospace;
+}
+.match-top {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background: #10212baa;
+  padding: 10px 15px;
+  border-left: 2px solid #f4ac58;
+}
+.match-top > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hud-label {
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #d9dfdb;
+}
+.match-top b {
+  font-size: 26px;
+  color: white;
+}
+.match-top #ping {
+  font-size: 9px;
+  color: #c4d4cf;
+}
+.zone-info {
+  position: absolute;
+  top: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #10212bdd;
+  padding: 10px 15px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  display: flex;
+  gap: 9px;
+  white-space: nowrap;
+}
+.pulse {
+  width: 7px;
+  height: 7px;
+  background: #98def3;
+  border-radius: 50%;
+}
+#compass {
+  position: absolute;
+  top: 69px;
+  text-align: center;
+  width: 100%;
+  letter-spacing: 4px;
+  font-size: 12px;
+  text-shadow: 0 1px 3px #000;
+}
+.map-wrap {
+  position: absolute;
+  right: 24px;
+  top: 20px;
+  background: #102427ce;
+  border: 1px solid #d9e5ce77;
+  padding: 5px;
+  box-shadow: 0 4px 20px #0002;
+}
+.map-wrap canvas {
+  display: block;
+  width: 156px;
+  height: 156px;
+}
+.map-wrap small {
+  font: 7px monospace;
+  letter-spacing: 2px;
+  display: block;
+  text-align: center;
+  padding: 5px;
+}
+#killfeed {
+  position: absolute;
+  right: 24px;
+  top: 210px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-end;
+}
+.feeditem {
+  padding: 8px 10px;
+  font-size: 10px;
+  background: #0b1f2bb8;
+  border-right: 2px solid var(--accent);
+}
+#crosshair {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%);
+}
+#crosshair i {
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 0 2px #000;
+  width: 2px;
+  height: 6px;
+  left: 11px;
+}
+#crosshair i:nth-child(2) {
+  bottom: 0;
+}
+#crosshair i:nth-child(3) {
+  transform: rotate(90deg);
+  left: 2px;
+  top: 9px;
+}
+#crosshair i:nth-child(4) {
+  transform: rotate(90deg);
+  left: 20px;
+  top: 9px;
+}
+#hitmarker {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font: 38px monospace;
+  color: #ffc15e;
+  text-shadow: 0 1px 5px #000;
+  transition: opacity 0.12s;
+}
+#damage-overlay {
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 140px #cf241899;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+#prompt {
+  position: absolute;
+  top: 63%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  background: #132631de;
+  border: 1px solid #ffffff55;
+  padding: 12px 16px;
+  white-space: nowrap;
+}
+#prompt:empty {
+  display: none;
+}
+#flight-help {
+  position: absolute;
+  top: 71%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  background: var(--accent);
+  padding: 15px 20px;
+  color: #15232b;
+  text-align: center;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.vitals {
+  position: absolute;
+  bottom: 34px;
+  left: 30px;
+  width: 280px;
+  padding: 12px;
+  background: #10212b99;
+}
+#phase-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 12px;
+}
+.bar {
+  background: #09181bc4;
+  height: 9px;
+  margin: 5px 0;
+  border: 1px solid #ffffff36;
+}
+.bar i {
+  display: block;
+  height: 100%;
+  transition: width 0.12s;
+}
+.health i {
+  background: #d7edd5;
+}
+.armor {
+  height: 5px;
+}
+.armor i {
+  background: #76cced;
+}
+.vital-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  margin-top: 9px;
+}
+.vital-labels strong {
+  font-size: 11px;
+}
+.weapon-panel {
+  position: absolute;
+  bottom: 31px;
+  right: 30px;
+  text-align: right;
+  text-shadow: 0 1px 3px #000;
+  background: #10212b99;
+  padding: 12px;
+}
+#weapon-name {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+}
+.weapon-panel > div {
+  margin: 6px 0;
+}
+.weapon-panel b {
+  font: 44px Arial;
+  font-weight: 800;
+}
+.weapon-panel div > span {
+  font-size: 16px;
+  color: #b4c8c5;
+}
+.weapon-panel small {
+  font-size: 8px;
+  color: #d7e5df;
+}
+#inventory {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+#inventory button {
+  pointer-events: auto;
+  background: #132830ba;
+  color: white;
+  border: 1px solid #ffffff55;
+  padding: 7px;
+  font-size: 8px;
+}
+#inventory button.active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.soundbutton {
+  pointer-events: auto;
+  position: absolute;
+  bottom: 8px;
+  left: 30px;
+  background: none;
+  border: 0;
+  color: #bccccc;
+  font: 8px monospace;
+}
+.capture-card {
+  text-align: center;
+}
+.capture-card h2 {
+  font-size: 32px;
+}
+#toast {
+  position: fixed;
+  bottom: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  background: #14262ff0;
+  border-left: 3px solid var(--accent);
+  padding: 12px 18px;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+.result-card {
+  text-align: center;
+}
+.result-card .eyebrow {
+  justify-content: center;
+}
+.result-card h2 {
+  font-family: Impact, Arial, sans-serif;
+  font-size: 58px;
+  line-height: 1;
+  color: var(--accent);
+}
+.result-card p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #c6d4d0;
+}
+#touch {
+  display: none;
+}
+body.playing #topbar,
+body.playing #vignette {
+  display: none;
+}
+body.aim #crosshair {
+  transform: translate(-50%, -50%) scale(0.55);
+}
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 65px;
+  }
+  .screen {
+    gap: 25px;
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+  .menu-card {
+    width: 330px;
+    padding: 23px;
+  }
+  .hero p {
+    font-size: 12px;
+  }
+  .specs {
+    gap: 20px;
+  }
+  .specs > div {
+    padding-right: 20px;
+  }
+  .menu-footer > span:last-child {
+    display: none;
+  }
+  .maplabel {
+    margin-top: 30px;
+  }
+  .topright {
+    gap: 12px;
+  }
+  .brand small {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  body:not(.playing) {
+    overflow: auto;
+  }
+  #menu {
+    position: relative;
+    min-height: 100svh;
+    display: block;
+    padding: 100px 20px 75px;
+  }
+  .hero h1 {
+    font-size: 52px;
+    margin: 20px 0;
+  }
+  .hero p,
+  .specs,
+  .maplabel {
+    display: none;
+  }
+  .hero .eyebrow {
+    font-size: 8px;
+  }
+  .menu-card {
+    width: 100%;
+    margin-top: 28px;
+  }
+  .menu-card h2 {
+    font-size: 25px;
+    margin-top: 18px;
+  }
+  .topright .tag {
+    display: none;
+  }
+  #topbar {
+    padding: 20px;
+  }
+  .brand {
+    font-size: 20px;
+  }
+  .menu-footer {
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    font-size: 8px;
+  }
+  .lobby-card,
+  .capture-card,
+  .result-card {
+    padding: 24px;
+  }
+  .map-wrap {
+    right: 12px;
+    top: 12px;
+  }
+  .map-wrap canvas {
+    width: 100px;
+    height: 100px;
+  }
+  .map-wrap small {
+    font-size: 6px;
+    letter-spacing: 0.5px;
+  }
+  .match-top {
+    top: 17px;
+    left: 16px;
+    gap: 16px;
+  }
+  .match-top b {
+    font-size: 22px;
+  }
+  .match-top #ping {
+    display: none;
+  }
+  .zone-info {
+    top: 82px;
+    left: 16px;
+    transform: none;
+    font-size: 8px;
+    padding: 7px 9px;
+  }
+  #compass {
+    top: 20px;
+    width: 40%;
+    left: 30%;
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+  #killfeed {
+    top: 140px;
+    right: 12px;
+  }
+  .feeditem {
+    font-size: 8px;
+  }
+  .vitals {
+    bottom: 18px;
+    left: 15px;
+    width: 175px;
+  }
+  .weapon-panel {
+    bottom: 15px;
+    right: 15px;
+  }
+  .weapon-panel b {
+    font-size: 30px;
+  }
+  .weapon-panel small {
+    display: none;
+  }
+  #weapon-name {
+    font-size: 9px;
+  }
+  #inventory {
+    display: none;
+  }
+  .soundbutton {
+    left: 200px;
+    bottom: 18px;
+  }
+  .vital-labels {
+    font-size: 7px;
+  }
+  #phase-label {
+    font-size: 7px;
+  }
+  #flight-help {
+    font-size: 10px;
+    top: 36%;
+    max-width: 90vw;
+    white-space: normal;
+  }
+  #prompt {
+    top: 44%;
+    font-size: 10px;
+  }
+}
+body.playing.touch-mode #touch {
+  display: block;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  touch-action: none;
+}
+.touch-mode #lookpad {
+  pointer-events: auto;
+  position: absolute;
+  right: 0;
+  top: 20%;
+  width: 58%;
+  height: 55%;
+}
+.touch-mode #stick {
+  pointer-events: auto;
+  position: absolute;
+  left: 28px;
+  bottom: 110px;
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  background: #ffffff14;
+  border: 1px solid #ffffff55;
+  touch-action: none;
+}
+.touch-mode #stick-knob {
+  position: absolute;
+  left: 38px;
+  top: 38px;
+  width: 37px;
+  height: 37px;
+  background: #eef4e3aa;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+.touch-mode #touch button {
+  pointer-events: auto;
+  position: absolute;
+  background: #14313a9e;
+  border: 1px solid #d5e4e499;
+  border-radius: 50%;
+  color: #fff;
+  font: 10px monospace;
+  touch-action: none;
+  width: 49px;
+  height: 49px;
+}
+.touch-mode #touch #touch-fire {
+  right: 26px;
+  bottom: 140px;
+  width: 74px;
+  height: 74px;
+  background: #b578309e;
+}
+.touch-mode #touch-aim {
+  right: 117px;
+  bottom: 148px;
+}
+.touch-mode #touch-use {
+  right: 32px;
+  bottom: 230px;
+}
+.touch-mode #touch-reload {
+  right: 112px;
+  bottom: 220px;
+}
+.touch-mode #touch-heal {
+  right: 176px;
+  bottom: 150px;
+}
+.touch-mode #touch-swap {
+  right: 178px;
+  bottom: 219px;
+}
+.touch-mode #touch #touch-drop {
+  right: 28px;
+  bottom: 235px;
+  width: 65px;
+  height: 65px;
+}
+.touch-mode #prompt {
+  top: 44%;
+}
+.touch-mode .weapon-panel {
+  bottom: 24px;
+}
+.touch-mode .soundbutton {
+  display: none;
+}
+.touch-mode .capture-card p {
+  font-size: 11px;
+}
+@media (max-height: 620px) and (min-width: 701px) {
+  body:not(.playing) {
+    overflow: auto;
+  }
+  #menu {
+    position: relative;
+    min-height: 660px;
+    align-items: flex-start;
+    padding-top: 95px;
+    padding-bottom: 80px;
+  }
+  #menu .hero {
+    padding-top: 25px;
+  }
+  #topbar {
+    padding-top: 15px;
+  }
+  .screen {
+    padding-top: 70px;
+    padding-bottom: 50px;
+  }
+  h1 {
+    font-size: 55px;
+  }
+  .menu-card {
+    padding: 17px;
+  }
+  .card-top {
+    padding-bottom: 14px;
+  }
+  .menu-card h2 {
+    margin-top: 14px;
+    font-size: 23px;
+  }
+  .menu-card label {
+    margin-top: 14px;
+  }
+  .menu-card input,
+  .menu-card select {
+    height: 35px;
+  }
+  .tabs {
+    margin-top: 14px;
+  }
+  .primary {
+    margin-top: 18px;
+    padding: 12px;
+  }
+  .maplabel {
+    display: none;
+  }
+  .specs {
+    margin-top: 20px;
+  }
+  .menu-footer {
+    bottom: 15px;
+  }
+  .hero p {
+    font-size: 11px;
+  }
+}
+@media (max-height: 600px) {
+  .touch-mode .map-wrap {
+    right: 12px;
+    top: 12px;
+  }
+  .touch-mode .map-wrap canvas {
+    width: 90px;
+    height: 90px;
+  }
+  .touch-mode .map-wrap small {
+    font-size: 6px;
+    letter-spacing: 0.4px;
+  }
+  .touch-mode .match-top {
+    top: 12px;
+    left: 12px;
+    padding: 8px 10px;
+  }
+  .touch-mode .match-top b {
+    font-size: 22px;
+  }
+  .touch-mode #ping {
+    display: none;
+  }
+  .touch-mode .vitals {
+    left: 14px;
+    bottom: 12px;
+    width: 210px;
+    padding: 10px;
+  }
+  .touch-mode .weapon-panel {
+    right: 14px;
+    bottom: 12px;
+    padding: 8px;
+  }
+  .touch-mode .weapon-panel b {
+    font-size: 28px;
+  }
+  .touch-mode .weapon-panel small,
+  .touch-mode #inventory {
+    display: none;
+  }
+  .touch-mode #weapon-name {
+    font-size: 9px;
+  }
+  .touch-mode #phase-label {
+    font-size: 7px;
+    margin-bottom: 7px;
+  }
+  .touch-mode #flight-help {
+    top: 34%;
+    font-size: 10px;
+    padding: 11px 14px;
+  }
+  .touch-mode #touch #touch-fire {
+    right: 22px;
+    bottom: 108px;
+    width: 64px;
+    height: 64px;
+  }
+  .touch-mode #touch-aim {
+    right: 101px;
+    bottom: 112px;
+  }
+  .touch-mode #touch-use {
+    right: 28px;
+    bottom: 187px;
+  }
+  .touch-mode #touch-reload {
+    right: 99px;
+    bottom: 180px;
+  }
+  .touch-mode #touch-heal {
+    right: 165px;
+    bottom: 113px;
+  }
+  .touch-mode #touch-swap {
+    right: 166px;
+    bottom: 180px;
+  }
+  .touch-mode #touch #touch-drop {
+    right: 24px;
+    bottom: 184px;
+  }
+  .touch-mode #killfeed {
+    top: 125px;
+    right: 12px;
+  }
+}
